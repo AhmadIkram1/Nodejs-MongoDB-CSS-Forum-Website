@@ -1,0 +1,161 @@
+<div class="col-xl-7 col-lg-8">
+    <div class="forum_topic_list_inner">
+        <div class="topics-filter d-xl-none">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        <ion-icon name="earth-outline"></ion-icon> View all
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <ion-icon name="swap-horizontal-outline"></ion-icon> General
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <ion-icon name="bulb-outline"></ion-icon> Ideas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <ion-icon name="bulb-outline"></ion-icon> User Feedback
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="forum_l_inner">
+            <div class="forum_head d-flex justify-content-between">
+                <ul class="nav left">
+                    <li><i class="icon_error-circle_alt"></i> 15 Open</li>
+                    <li>
+                        <a href="#"><i class="icon_check"></i> 202 Closed</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon_refresh"></i> Reset</a>
+                    </li>
+                </ul>
+                <ul class="nav right">
+
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Author <i class="arrow_carrot-down"></i>
+              </button>
+                            <div class="dropdown-menu">
+                                <h3 class="title">Filter by author</h3>
+                                <form action="#" class="cate-search-form">
+                                    <input type="text" placeholder="Search users" />
+                                </form>
+                                <div class="all_users scroll">
+                                    <a class="dropdown-item" href="#"><img src="img/forum/filter-user-1.png" alt="" /> Donny Peters
+                                    </a>
+                                    <a class="dropdown-item" href="#"><img src="img/forum/filter-user-2.png" alt="" />Linh Knapp
+                                    </a>
+                                    <a class="dropdown-item" href="#"><img src="img/forum/filter-user-3.png" alt="" />Albert Roach
+                                    </a>
+                                    <a class="dropdown-item" href="#"><img src="img/forum/filter-user-4.png" alt="" />Kristin Larsen
+                                    </a>
+                                    <a class="dropdown-item" href="#"><img src="img/forum/filter-user-5.png" alt="" />Ernest Patton
+                                    </a>
+                                    <a class="dropdown-item" href="#"><img src="img/forum/filter-user-2.png" alt="" />Linh Knapp Patton
+                                    </a>
+                                    <a class="dropdown-item" href="#"><img src="img/forum/filter-user-1.png" alt="" />Donny Peters
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown right_dir">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Label <i class="arrow_carrot-down"></i>
+              </button>
+                            <div class="dropdown-menu">
+                                <h3 class="title">Filter by label</h3>
+                                <form action="#" class="cate-search-form">
+                                    <input type="text" placeholder="Search Users" />
+                                </form>
+                                <div class="all_users scroll">
+                                    <a class="dropdown-item" href="#"><span class="color red"></span> bugs</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><span class="color blue"></span> request/feature</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><span class="color dark_blue"></span> Developer Edition</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><span class="color green"></span>help wanted</a
+                  >
+                  <a class="dropdown-item" href="#"
+                    ><span class="color pink"></span>question</a
+                  >
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="dropdown right_dir">
+              <button
+                class="btn dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Sort <i class="arrow_carrot-down"></i>
+              </button>
+              <div class="dropdown-menu">
+                <h3 class="title">Filter by author</h3>
+                <form action="#" class="cate-search-form">
+                  <input type="text" placeholder="Search users" />
+                </form>
+                <div class="all_users short-by scroll">
+                  <a class="dropdown-item active-short" href="#">
+                    <ion-icon name="checkmark-outline"></ion-icon> Newest
+                  </a>
+                                    <a class="dropdown-item" href="#"> Oldest </a>
+                                    <a class="dropdown-item" href="#"> Most commented </a>
+                                    <a class="dropdown-item" href="#"> Least commented </a>
+                                    <a class="dropdown-item" href="#"> Recently updated </a>
+                                    <a class="dropdown-item" href="#"> Recently updated </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="forum_body">
+                <ul class="navbar-nav topic_list">
+                    <% for (var i = 0; i < posts.length; i++) { %>
+                        <li>
+                            <div class="media">
+                                <div class="d-flex">
+                                    <img class="rounded-circle" src="img/forum/f-user-1.png" alt="" />
+                                </div>
+                                <div class="media-body">
+                                    <div class="t_title">
+                                        <a href="/<%= posts[i]._id %>">
+                                            <h4>
+                                                <%= posts[i].title %>
+                                            </h4>
+                                            <p> Answers Given :
+                                                <%= answers[i] %>
+                                            </p>
+                                        </a>
+                                        <p>Posted By:
+                                            <%= postusername[i].firstname %>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media-right">
+                        </li>
+                        <% } %>
+
+                </ul>
+                </div>
+                </div>
+
+            </div>
+        </div>

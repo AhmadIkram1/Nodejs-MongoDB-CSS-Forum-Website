@@ -1,0 +1,91 @@
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- icon css-->
+    <link rel="stylesheet" href="assets/elagent-icon/style.css" />
+    <link rel="stylesheet" href="assets/animation/animate.css" />
+    <link rel="stylesheet" href="css/style-main.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <title>CSS Smashers</title>
+</head>
+
+<body data-scroll-animation="true">
+    <%-include('partials/preloader.ejs'); -%>
+
+        <div class="body_wrapper">
+            <section class="signup_area">
+                <div class="row ml-0 mr-0">
+                    <div class="sign_left signin_left">
+                        <h2>We are design changers do what matters.</h2>
+                        <img class="position-absolute top" src="img/signup/top_ornamate.png" alt="top" />
+                        <img class="position-absolute bottom" src="img/signup/bottom_ornamate.png" alt="bottom" />
+                        <img class="position-absolute middle" src="img/signup/door.png" alt="bottom" />
+                        <div class="round"></div>
+                    </div>
+                    <div class="sign_right signup_right">
+                        <div class="sign_inner signup_inner">
+                            <div class="text-center">
+                                <h3>Create Your Post Here</h3>
+                            </div>
+                            <div class="divider">
+                                <span class="or-text"></span>
+                            </div>
+
+                            <div id="era"></div>
+
+                            <form action="/createPost" method="post" class="row login_form">
+                                <div class="col-lg-12 form-group">
+                                    <div class="small_text">Title</div>
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="YOUR POST TITLE...." />
+                                    <div class="title error"></div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="small_text">Content</div>
+                                    <div class="post_content">
+                                        <input id="content" name="content" type="textarea" class="form-control" placeholder="TYPE POST CONTENT....." autocomplete="off" />
+                                        <div class="content error"></div>
+                                    </div>
+                                </div>
+
+                                <% if(user){ %>
+                                    <div class="col-lg-12 form-group">
+                                        <div class="small_text">Your Id</div>
+                                        <div class="post_content">
+                                            <input readonly value="<%= user.id %>" id="userid" name="userid" type="text" class="form-control" />
+
+                                            <div class="content error"></div>
+                                        </div>
+                                    </div>
+                                    <% } %>
+
+                                        <div class="col-lg-12 text-center">
+                                            <button type="submit" class="btn action_btn thm_btn">
+                      Create Post
+                    </button>
+                                        </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/pre-loader.js"></script>
+        <script src="assets/bootstrap/js/popper.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="js/parallaxie.js"></script>
+        <script src="js/TweenMax.min.js"></script>
+        <script src="assets/wow/wow.min.js"></script>
+        <script src="../../unpkg.com/ionicons%405.4.0/dist/ionicons.js"></script>
+        <script src="js/main.js"></script>
+</body>
+
+</html>

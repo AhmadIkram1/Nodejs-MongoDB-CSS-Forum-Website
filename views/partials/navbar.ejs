@@ -1,0 +1,46 @@
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav menu ml-auto">
+        <li class="nav-item dropdown submenu active">
+            <a href="home" class="nav-link dropdown-toggle">Home</a>
+        </li>
+        <li class="nav-item dropdown submenu mega_menu tab-demo">
+            <a href="contact" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Contact us</a>
+            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="true" data-toggle="dropdown"></i>
+        </li>
+        <li class="nav-item dropdown submenu">
+            <a class="nav-link dropdown-toggle" href="forum" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Forum
+</a>
+            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
+
+        </li>
+        <li class="nav-item dropdown submenu">
+            <a class="nav-link dropdown-toggle" href="forum" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Introduction
+</a>
+            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
+        </li>
+        <li class="nav-item dropdown submenu">
+            <a class="nav-link dropdown-toggle" href="forumSingle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+Blog
+</a>
+            <i class="arrow_carrot-down_alt2 mobile_dropdown_icon" aria-hidden="false" data-toggle="dropdown"></i>
+
+        </li>
+    </ul>
+    <div class="right-nav">
+            <% if (user) { %>
+                <a class="nav_btn" href="forumProfile">
+                <%= user.firstname %>
+            </a>
+                <a class="nav_btn" href="/signout">SignOut</a>
+              <% } else { %>
+                <a class="nav_btn" href="/signin">SignIn</a>
+                <a class="nav_btn" href="/signup" class="btn">SignUp</a>
+              <% } %>
+    </div>
+
+    
+</div>
+</div>
+</nav>

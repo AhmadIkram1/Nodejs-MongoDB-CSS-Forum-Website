@@ -1,0 +1,27 @@
+<%- include('partials/forumPartials/forumHeader.ejs'); -%>
+    <%-
+include('partials/navbar.ejs'); -%>
+
+        <link rel="stylesheet" href="assets/mcustomscrollbar/jquery.mCustomScrollbar.min.css" />
+        <link rel="stylesheet" href="assets/ionicons/css/ionicons.min.css" />
+
+        <!--================Forum Breadcrumb Area =================-->
+        <%- include('partials/forumPartials/bannerforum.ejs'); -%>
+
+            <!--================End Forum Breadcrumb Area =================-->
+
+            <!--================Forum Body Area =================-->
+            <section class="forum_sidebar_area" id="sticky_doc">
+                <div class="container-fluid pl-60 pr-60">
+                    <div class="row">
+                        <%- include('partials/forumTopicPartial/verticalBar1.ejs'); -%>
+                            <%-
+      include('partials/forumTopicPartial/verticalBar2.ejs'); -%>
+                                <%-
+      include('partials/forumTopicPartial/verticalBar3.ejs'); -%>
+                    </div>
+                </div>
+            </section>
+            <!--================End Forum Body Area =================-->
+
+            <%- include('partials/footer'); -%>

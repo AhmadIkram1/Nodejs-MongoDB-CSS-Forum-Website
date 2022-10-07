@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <!-- icon css-->
+    <link rel="stylesheet" href="assets/elagent-icon/style.css" />
+    <link rel="stylesheet" href="assets/animation/animate.css" />
+    <link rel="stylesheet" href="css/style-main.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/custom.css" />
+    <title>CSS Smashers</title>
+</head>
+
+<body data-scroll-animation="true">
+    <%-include('partials/preloader.ejs'); -%>
+        <div class="body_wrapper">
+            <section class="signup_area signup_area_height">
+                <div class="row ml-0 mr-0">
+                    <div class="sign_left signup_left">
+                        <h2>We are design changers do what matters.</h2>
+                        <img class="position-absolute top" src="img/signup/top_ornamate.png" alt="top" />
+                        <img class="position-absolute bottom" src="img/signup/bottom_ornamate.png" alt="bottom" />
+                        <img class="position-absolute middle wow fadeInRight" src="img/signup/man_image.png" alt="bottom" />
+                        <div class="round wow zoomIn" data-wow-delay="0.2s"></div>
+                    </div>
+                    <div class="sign_right signup_right">
+                        <div class="sign_inner signup_inner">
+                            <div class="text-center">
+                                <h3>Create your CSS Smashers Account</h3>
+                                <p>Already have an account? <a href="/signin">Sign in</a></p>
+
+                            </div>
+                            <div class="einfo"></div>
+
+                            <form action="/signup" class="row login_form">
+                                <div class="col-sm-6 form-group">
+                                    <div class="small_text">First name</div>
+                                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Muhammad" />
+                                    <div class="firstname error"></div>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <div class="small_text">Last name</div>
+                                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Jewel" />
+                                    <div class="lastname error"></div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="small_text">Your email</div>
+                                    <input type="text" class="form-control" name="email" id="email" placeholder="" />
+                                    <div class="email error"></div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="small_text">Password</div>
+                                    <input id="password" name="password" type="password" class="form-control" placeholder="6+ characters required" autocomplete="off" />
+                                    <div class="password error"></div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="small_text">Confirm password</div>
+                                    <input id="passwordconf" name="passwordconf" type="password" class="form-control" placeholder="6+ characters required" autocomplete="off" />
+                                    <div class="passwordconf error"></div>
+                                </div>
+                                <div class="col-lg-12 form-group">
+                                    <div class="check_box">
+                                        <input type="checkbox" value="None" id="squared2" name="check" />
+                                        <label class="l_text" for="squared2">I accept the
+                      <span>politic of confidentiality</span></label
+                    >
+                  </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                  <button type="submit" class="btn action_btn thm_btn">
+                    Create an account
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      const form = document.querySelector("form");
+      const firstNameError = document.querySelector(".firstname.error");
+      const lastNameError = document.querySelector(".lastname.error");
+      const emailError = document.querySelector(".email.error");
+      const passwordError = document.querySelector(".password.error");
+      const confirmPasswordError = document.querySelector(
+        ".passwordconf.error"
+      );
+      const einfo = document.querySelector(".einfo");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // reset errors
+        firstNameError.textContent = "";
+        lastNameError.textContent = "";
+        emailError.textContent = "";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+
+        // get values
+        const firstname = form.firstname.value;
+        const lastname = form.lastname.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const passwordconf = form.passwordconf.value;
+
+        if (
+          document.getElementById("password").value !=
+          document.getElementById("passwordconf").value
+        ) {
+          confirmPasswordError.textContent =
+            "Password And Confirm Password Mismatch";
+        }
+
+        try {
+          const res = await fetch("/signup", {
+            method: "POST",
+            body: JSON.stringify({
+              firstname,
+              lastname,
+              email,
+              password,
+              passwordconf,
+            }),
+            headers: { "Content-Type": "application/json" },
+          });
+          const data = await res.json();
+          console.log(data);
+          if (data.errors) {
+            firstNameError.textContent = data.errors.firstname;
+            lastNameError.textContent = data.errors.lastname;
+            emailError.textContent = data.errors.email;
+            passwordError.textContent = data.errors.password;
+            confirmPasswordError.textContent = data.errors.passwordconf;
+          }
+          if (data.user) {
+            //  location.assign("/");
+            alert('Please first verify the email you enter');
+            einfo.textContent = "Check Email To Verify";
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      });
+    </script>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/pre-loader.js"></script>
+    <script src="assets/bootstrap/js/popper.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/parallaxie.js"></script>
+    <script src="js/TweenMax.min.js"></script>
+    <script src="assets/wow/wow.min.js"></script>
+    <script src="../../unpkg.com/ionicons%405.4.0/dist/ionicons.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+ </html>
