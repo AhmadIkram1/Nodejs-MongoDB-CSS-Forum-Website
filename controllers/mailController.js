@@ -7,14 +7,14 @@ const sendMail = (email, uniqueString) =>{
     var Transport = nodemailer.createTransport({
         service: "Gmail",
         auth: {
-            user: "studenteria12@gmail.com",
-            pass: "AhmedAqib@12"
+            user: "your@email.com",
+            pass: "yourpassword"
         }
     });
     var mailOptions;
-    let sender = "studenteria12@gmail.com";
+    let sender = "your@email.com";
     mailOptions = {
-        from: 'studenteria12@gmail.com',
+        from: 'your@email.com',
         to: email,
         subject: 'Email Confirmation',
         html: `Press <a href=http://localhost:3000/verify/${uniqueString}> here </a> to verify your email, ThankYou`
